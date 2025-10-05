@@ -36,6 +36,45 @@ class Solution {
     }
 }
 ```
+I understand you want the README.md for the "Contains Duplicate" problem in a raw Markdown code block, with the Approach section formatted as bullet points (as it already is in the provided wording), and including the Time Complexity and Space Complexity sections as previously specified. Since you’ve reiterated the need for the approach in bullet points, I’ll ensure the Approach section is formatted correctly in Markdown bullet point syntax, using the exact wording you provided earlier. Below is the README.md with the requested structure, incorporating the provided solution and problem details.
+markdown# 217. Contains Duplicate
+**Easy**
+
+## Problem Statement
+Given an integer array `nums`, return `true` if any value appears at least twice in the array, and return `false` if every element is distinct.
+
+## Examples
+### Example 1:
+- **Input**: `nums = [1,2,3,1]`
+- **Output**: `true`
+
+### Example 2:
+- **Input**: `nums = [1,2,3,4]`
+- **Output**: `false`
+
+### Example 3:
+- **Input**: `nums = [1,1,1,3,3,4,3,2,4,2]`
+- **Output**: `true`
+
+## Constraints
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+
+## Solution
+```java
+class Solution {
+    public boolean hasDuplicate(int[] nums) {
+        HashSet<Integer> seen = new HashSet<>();
+        for(int num : nums) {
+            if(seen.contains(num)) {
+                return true;
+            }
+            seen.add(num);
+        }
+        return false;
+    }
+}
+```
 Approach
 
 Initialize a HashSet: Create a HashSet called seen to store unique elements.
