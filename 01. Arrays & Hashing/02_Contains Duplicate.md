@@ -35,6 +35,7 @@ class Solution {
         return false;
     }
 }
+```
 Approach
 
 Initialize a HashSet: Create a HashSet called seen to store unique elements.
