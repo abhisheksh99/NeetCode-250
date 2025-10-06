@@ -1,23 +1,22 @@
-# 104. Maximum Depth of Binary Tree
+# Search in Binary Tree
 **Easy**
 
 ## Problem Statement
-Given the root of a binary tree, return its maximum depth.
-
-A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+Given the root of a binary tree and an integer value, return true if the value exists in the tree, otherwise return false.
 
 ## Examples
 ### Example 1:
-- Input: root = [3,9,20,null,null,15,7]
-- Output: 3
+- Input: root = [4,2,7,1,3], value = 2
+- Output: true
 
 ### Example 2:
-- Input: root = [1,null,2]
-- Output: 2
+- Input: root = [4,2,7,1,3], value = 5
+- Output: false
 
 ## Constraints
 - The number of nodes in the tree is in the range [0, 10^4].
-- -100 <= Node.val <= 100
+- -10^5 <= Node.val <= 10^5
+- The tree is not necessarily a BST.
 
 ## Solution
 ```java
@@ -37,19 +36,19 @@ A binary tree's maximum depth is the number of nodes along the longest path from
  * }
  */
 class Solution {
-    public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return 1 + Math.max(maxDepth(root.right), maxDepth(root.left));
+    public boolean search(TreeNode root, int value) {
+        if (root == null) return false;
+        if (root.val == value) return true;
+        return search(root.left, value) || search(root.right, value);
     }
 }
 ```
 
 Approach
-- Use recursion to find the maximum depth of the left and right subtrees.
-- The maximum depth is 1 plus the greater of the two subtree depths.
-- Return 0 for a null node (base case).
+- Use DFS (recursive) to traverse the tree.
+- At each node, check if the value matches.
+- If not, search left and right subtrees.
+- Return true if found in any subtree, else false.
 
 Time Complexity
 - O(n), where n is the number of nodes in the tree.
