@@ -35,14 +35,13 @@ class Solution {
         return false;
     }
 }
-```
 
 Approach
 
 - Initialize an empty HashSet `seen` to store unique elements.
 - Iterate through each number in the input array `nums`:
-    - If the number is already in `seen`, return true (duplicate found).
-    - Otherwise, add the number to `seen`.
+  - If the number is already in `seen`, return true (duplicate found).
+  - Otherwise, add the number to `seen`.
 - If the loop completes without finding duplicates, return false.
 - Notes: Uses a HashSet for O(1) average lookup and insert; single pass through the array.
 
